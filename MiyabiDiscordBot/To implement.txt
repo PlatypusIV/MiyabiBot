@@ -1,0 +1,28 @@
+﻿// stuff she should respond too
+
+Greetings,
+"I am Miyabi and I dance for Evil!", <-- Upon bot startup, or introducing herself to others,
+Miyabi,
+Congratulations,
+Imu,
+Ryoubi,
+Ryouna,
+Murasaki,
+Homura,
+DMC,
+Devil May Cry,
+Dante,
+Vergil,
+Nero,
+Motivation,
+Power,
+Strong,
+Powerful,
+Yoma,
+Demons,
+
+///To Implement:
+Startup message,
+Close out message and console command. "Im going to bed. See you all later."
+editable responses via JSON
+push to github
