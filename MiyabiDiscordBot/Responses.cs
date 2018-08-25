@@ -8,9 +8,12 @@ namespace MiyabiDiscordBot
 {
     class Responses
     {
-        
 
-        public string[] thingsToRespondTo = { "murasaki", "imu", "ryoubi", "ryouna","homura","crab","crustacean","devil","dmc","dante","vergil","nero","yumi","man","manly" };
+        ResponsesFromFile resFromFile = new ResponsesFromFile();
+
+        //public string[] thingsToRespondTo = { "murasaki", "imu", "ryoubi", "ryouna","homura","crab","crustacean","devil","dmc","dante","vergil","nero","yumi","man","manly" };
+
+        public string[] thingsToRespondTo;
 
         Dictionary<string, string[]> _responsesToQueries = new Dictionary<string, string[]>();
 
@@ -90,9 +93,51 @@ namespace MiyabiDiscordBot
 
         //constructor
 
+        //public Responses()
+        //{
+        //    if (!resFromFile.checkForFile())
+        //    {
+        //        fillDictionary();
+        //        resFromFile.writeToFileAsync(_responsesToQueries);
+        //        fillTriggerArray();
+
+
+        //    }
+        //    else
+        //    {
+        //        readFromFileAsync();
+
+        //    }
+
+
+
+
+        //}
+
         public Responses()
         {
-            _responsesToQueries.Add("murasaki",_murasaki );
+            //readFromFileAsync();
+
+            _responsesToQueries =  resFromFile.readFromFileBase();
+            fillTriggerArray();
+        }
+
+        /*public async void readFromFileAsync()
+        {
+            _responsesToQueries = await resFromFile.readFromFileTask();
+            //fillTriggerArray();
+
+
+        }*/
+
+
+
+
+
+
+        void fillDictionary()
+        {
+            _responsesToQueries.Add("murasaki", _murasaki);
             _responsesToQueries.Add("imu", _imu);
             _responsesToQueries.Add("ryoubi", _ryoubi);
             _responsesToQueries.Add("ryouna", _ryouna);
@@ -108,7 +153,18 @@ namespace MiyabiDiscordBot
             _responsesToQueries.Add("man", _man);
             _responsesToQueries.Add("manly", _man);
             _responsesToQueries.Add("default", _default);
+        }
 
+        void fillTriggerArray()
+        {
+            List<string> throwAwayList = new List<string>();
+
+            foreach(KeyValuePair<string,string[]> key in _responsesToQueries)
+            {
+                throwAwayList.Add(key.Key);
+            }
+
+            thingsToRespondTo = throwAwayList.ToArray<string>();
         }
 
         

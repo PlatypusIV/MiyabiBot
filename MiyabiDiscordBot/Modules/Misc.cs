@@ -76,15 +76,17 @@ namespace MiyabiDiscordBot.Modules
 
         }
 
-        /*[Command("smile")]
+        [Command("smile")]
         public async Task respondToAnything([Remainder]string whatMiyabiHears)
         {
-            string filePath = "Images\\MeebsASmile.jpg";
+            string[] filePathArr = { "Images\\MeebsASmile.jpg", "Images\\MeebsSmiling2.jpg", "Images\\MeebsAHappy.jpg" };
+
+            string filePath = filePathArr[impRng(0, filePathArr.Length - 1)];
 
 
 
             await Context.Channel.SendFileAsync(filePath);
-        }*/
+        }
 
 
         [Command("help")]
@@ -93,6 +95,8 @@ namespace MiyabiDiscordBot.Modules
             string helpText = string.Format($"Very well then! I shall assist you {Context.User.Username}!\n " +
                                             $"Use $Talk *text here* or @MiyabiBot Talk *text here* to talk with me!" +
                                             $"More options to come soon.\n");
+
+            
 
 
             await Context.User.SendMessageAsync(helpText);
@@ -111,6 +115,12 @@ namespace MiyabiDiscordBot.Modules
             {
                 return false;
             }
+        }
+
+        public int impRng(int min,int max)
+        {
+            Random rng = new Random();
+            return rng.Next(min, max);
         }
 
     }
