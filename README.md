@@ -1,5 +1,5 @@
 # MiyabiBot
-My MiyabiBot that I made with a tutorial. This guy's tutorials to be precise: https://www.youtube.com/watch?v=i4qkIkaF7Yk
+A discord bot made for the characters birthday.
 
 A great thank you to Peter and everyone on the discord server for helping me.
 
